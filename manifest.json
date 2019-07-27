@@ -1,0 +1,31 @@
+{
+
+  "manifest_version": 2,
+  "name": "Kickstarter Calendar End Dates",
+  "version": "1.0",
+
+  "homepage_url": "https://github.com/dhoeppne/kickstarter-end-dates-extension",
+  "description": "Adds a Kickstarter project's end date to your Google Calendar when you back.",
+
+  "icons": {
+    "48": "icons/calendar.svg"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/calendar.svg",
+    "default_title": "Kickstarter Calendar End Dates",
+    "default_popup": "popup/google_login.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.kickstarter.com/projects/*/*/*/*/thanks?event=create"],
+      "js": ["calendar-create.js"]
+    }
+  ]
+
+}
